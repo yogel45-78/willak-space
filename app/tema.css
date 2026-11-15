@@ -1,0 +1,38 @@
+/* ==========================================================================
+   tema.css — puente entre la identidad y la web.
+   La identidad real vive en tokens.css (copia de ..\01-IDENTIDAD\tokens.css,
+   variables --cs-*). Este archivo solo le pone a cada variable de la web
+   (--color-*) el valor de la identidad. Si la identidad cambia: se reemplaza
+   tokens.css por el nuevo y, si cambió algún nombre, se ajusta aquí.
+   estilos.css no tiene colores sueltos: todo sale de aquí.
+   ========================================================================== */
+:root {
+  --color-acento: var(--cs-terracota-600);
+  --color-acento-fuerte: var(--cs-terracota-700);
+  --color-acento-suave: var(--cs-terracota-100);
+  --color-oscuro: var(--cs-tinto-900);
+
+  /* Fondos grandes siempre blancos */
+  --color-fondo: var(--cs-blanco);
+  --color-superficie: var(--cs-blanco);
+  --color-suave: var(--cs-crema);      /* solo piezas chicas */
+  --color-borde: var(--cs-borde);
+  --color-texto: var(--cs-texto);
+  --color-texto-2: var(--cs-muted);
+
+  --color-ok: var(--cs-hoja-700);
+  --color-alerta: var(--cs-ambar-800);
+  --color-peligro: var(--cs-riesgo);
+  --color-simulacion: var(--cs-ambar-800);   /* rótulo "simulación / ejemplo" */
+
+  --color-chacra: var(--cs-terracota-600);
+  --color-territorio: var(--cs-tinto-900);
+
+  --fuente: var(--cs-fuente-cuerpo);
+  --fuente-titulo: var(--cs-fuente-titulo);
+  --texto-base: 15px;
+
+  --radio: var(--cs-radio-m);
+  --radio-chico: var(--cs-radio-s);
+  --sombra: var(--cs-sombra);
+}

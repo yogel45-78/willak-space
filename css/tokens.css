@@ -1,0 +1,37 @@
+/* Chakra Space — tokens de identidad. Contrastes WCAG medidos (ver identidad.html). */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Work+Sans:wght@400;500;600&display=swap');
+:root {
+  --cs-terracota-500: #C4623F; /* Terracota: Color de marca: símbolo, rellenos, barras y gráficos. Con texto blanco solo en tamaño grande. */
+  --cs-terracota-600: #B4532F; /* Terracota botón: Botones y enlaces. Texto blanco encima y texto sobre blanco cumplen AA. */
+  --cs-terracota-700: #8E3F20; /* Terracota texto: Texto terracota sobre tinte o crema; estados presionados. */
+  --cs-terracota-100: #F3DDD2; /* Tinte arcilla: Relleno suave de chips, vientre de la mascota, filas destacadas. */
+  --cs-tinto-900: #3A1E1A; /* Tinto cacao: El oscuro: texto principal, barras, títulos, mascota. */
+  --cs-tinto-700: #5A332B; /* Tinto ala: Segundo oscuro: alas, iconos, texto secundario fuerte. */
+  --cs-muted: #6B5448; /* Marrón apagado: Texto de apoyo y pies de gráfico. */
+  --cs-crema: #FBF4EE; /* Crema: Solo piezas chicas: paneles, cara de la mascota. Nunca fondo de pantalla. */
+  --cs-borde: #E8D5C9; /* Borde: Líneas finas de tarjetas y tablas. */
+  --cs-blanco: #FFFFFF; /* Blanco: Fondo de todas las pantallas y tarjetas grandes. */
+  --cs-hoja-700: #3F6B3D; /* Hoja: Dato positivo: vegetación sana, humedad adecuada. */
+  --cs-hoja-100: #DDE8D6; /* Hoja suave: Fondo de chip o barra positiva. */
+  --cs-ambar-500: #D9A441; /* Ámbar: Alerta: solo relleno e iconos (no texto). */
+  --cs-ambar-800: #9A5B00; /* Ámbar texto: Texto de alerta sobre blanco o ámbar suave. */
+  --cs-ambar-100: #FBEBC8; /* Ámbar suave: Fondo de aviso. */
+  --cs-riesgo: #B3382C; /* Riesgo: Peligro: helada, sequía, plaga. Texto e iconos. */
+  --cs-fondo: var(--cs-blanco);
+  --cs-texto: var(--cs-tinto-900);
+  --cs-texto-suave: var(--cs-muted);
+  --cs-primario: var(--cs-terracota-600);
+  --cs-primario-hover: var(--cs-terracota-700);
+  --cs-fuente-titulo: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --cs-fuente-cuerpo: 'Work Sans', 'Segoe UI', system-ui, sans-serif;
+  --cs-radio-s: 8px; --cs-radio-m: 14px; --cs-radio-l: 22px;
+  --cs-sombra: 0 1px 2px rgba(58,30,26,.08), 0 4px 14px rgba(58,30,26,.06);
+  --cs-espacio: 8px; /* múltiplos: 8, 16, 24, 32, 48 */
+}
+/* Regla: fondos grandes SIEMPRE blancos; sin degradados de ambiente. Crema/tinte solo en piezas chicas. */
+body { background: var(--cs-fondo); color: var(--cs-texto); font-family: var(--cs-fuente-cuerpo); }
+h1,h2,h3 { font-family: var(--cs-fuente-titulo); color: var(--cs-tinto-900); }
+.cs-boton { background: var(--cs-primario); color: #fff; border: 0; border-radius: var(--cs-radio-m); padding: 12px 20px; font: 600 16px var(--cs-fuente-cuerpo); }
+.cs-boton:hover { background: var(--cs-primario-hover); }
+.cs-tarjeta { background: #fff; border: 1px solid var(--cs-borde); border-radius: var(--cs-radio-l); box-shadow: var(--cs-sombra); }
+.cs-aviso { background: var(--cs-ambar-100); color: var(--cs-ambar-800); border-radius: var(--cs-radio-m); padding: 12px 16px; }
