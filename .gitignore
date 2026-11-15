@@ -1,0 +1,6 @@
+# Estado local de Netlify (lo escribe "netlify init" o "netlify link"); no se sube
+.netlify
+node_modules
+# Nunca subas archivos con la cuenta Earthdata
+.env
+.env.*

@@ -1,0 +1,16 @@
+{
+  "name": "Willak.space · Mi parcela",
+  "short_name": "Willak",
+  "description": "Apoyo a la decisión para la chakra amazónica: riesgos, qué sembrar, plan de rotación y seguimiento. Funciona sin internet.",
+  "lang": "es",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#ffffff",
+  "theme_color": "#1E5734",
+  "icons": [
+    { "src": "assets/simbolo.png", "sizes": "491x389", "type": "image/png", "purpose": "any" },
+    { "src": "assets/logo.png", "sizes": "853x620", "type": "image/png", "purpose": "any" }
+  ]
+}

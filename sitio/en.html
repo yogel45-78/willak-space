@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Willak.space · Satellites for the Amazonian chakra</title>
+<meta name="description" content="Willak.space combines NASA open data, field measurements and family knowledge to help decide what to plant in the Ecuadorian Amazon. NASA Space Apps Challenge 2026, Sangolquí.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" type="image/png" href="img/willak/simbolo.png">
+<link rel="stylesheet" href="css/landing.css?v=11">
+<style>
+  /* This page has no scroll animations, so the header stays in the normal flow */
+  .en-top { padding-top: 120px; }
+  .en-list { margin: 0; padding-left: 20px; display: grid; gap: 8px; font-size: 16px; max-width: 760px; }
+  .en-table { overflow-x: auto; margin: 18px 0; }
+  .en-table table { border-collapse: collapse; width: 100%; font-size: 15px; }
+  .en-table th, .en-table td { border: 1px solid var(--cs-borde); padding: 8px 10px; text-align: left; vertical-align: top; }
+  .en-table th { background: var(--cs-crema); }
+  .en-table a, .en-list a, .wrap p a { color: var(--cs-terracota-700); }
+</style>
+</head>
+<body>
+<header class="nav solid" id="nav">
+  <a class="brand" href="index.html" aria-label="Willak.space, home (Spanish)"><img src="img/willak/simbolo.png" alt="" width="40" height="32"><span><b>Willak<i>.space</i></b><small>NASA Space Apps 2026 · Sangolquí</small></span></a>
+  <nav class="links" aria-label="Sections">
+    <a href="#what">What it does</a><a href="#data">NASA data</a><a href="#method">Method</a><a href="#ai">AI use</a><a href="index.html" lang="es">Español</a>
+  </nav>
+  <a class="btn primary" href="app/index.html">Open the app</a>
+</header>
+
+<main>
+  <section class="sec en-top" id="what">
+    <div class="wrap">
+      <p class="kicker">NASA Space Apps Challenge 2026 · Sangolquí · Challenge: Field Shift: Adapting Farms with NASA Data</p>
+      <h1 class="sec-title">From space to the chakra.</h1>
+      <p class="sec-lead">Willak.space is a decision-support tool for agroecologists and field technicians who work with Kichwa families in Napo, in the Ecuadorian Amazon. It combines NASA open data, field measurements and what the family knows to decide what to plant, when, and how to rotate.</p>
+      <p class="sec-lead">A <i>chakra</i> is a Kichwa agroforestry plot. It rotates through three stages: clearing with short-cycle crops, crops under shade (plantain, cacao, guayusa), and fallow (<i>purma</i>), when the forest grows back and the soil recovers.</p>
+      <h2 class="sec-title" style="font-size:28px;margin-top:36px">What it does for each plot</h2>
+      <ol class="en-list">
+        <li>Downloads NASA and soil data for the exact location.</li>
+        <li>Computes five traffic-light risks: erosion, nutrient leaching, acidity, extreme heat and dry spells. Each one shows its source, date and confidence level.</li>
+        <li>Reads 25 years of greenness (EVI), discards cloudy dates and detects the stage of the chakra.</li>
+        <li>Adds what the family says: priorities, planting history and local signs. When it disagrees with the satellite, the family wins.</li>
+        <li>Recommends what to plant with a 0–100 score and an explanation.</li>
+        <li>Builds a 3–5 year rotation plan that keeps the soil covered during the heavy-rain months.</li>
+        <li>Monitors the crop and raises an alert, with a probable cause, when it grows less than expected.</li>
+      </ol>
+      <p>Registering a plot takes one tap on the map. The field sheet, the plan and the family form work offline. The interface is in Spanish, the language of its users.</p>
+      <p><a class="btn primary" href="app/index.html">Open the app</a> &nbsp; Press <b>Parcela de prueba</b> (test plot) to see the full flow with illustrative data.</p>
+    </div>
+  </section>
+
+  <section class="sec gray" id="data">
+    <div class="wrap">
+      <p class="kicker">Open science</p>
+      <h2 class="sec-title">NASA open data.</h2>
+      <div class="en-table"><table>
+        <thead><tr><th>Data</th><th>Product</th><th>Used for</th></tr></thead>
+        <tbody>
+          <tr><td>Daily climate since 2001</td><td><a href="https://power.larc.nasa.gov/" target="_blank" rel="noopener">NASA POWER</a> (T2M_MAX, GWETROOT, PRECTOTCORR)</td><td>Hot days, root-zone moisture, backup rainfall. Queried live for each plot.</td></tr>
+          <tr><td>Greenness every 16 days, 250 m</td><td>MODIS <a href="https://doi.org/10.5067/MODIS/MOD13Q1.061" target="_blank" rel="noopener">MOD13Q1</a> and <a href="https://doi.org/10.5067/MODIS/MYD13Q1.061" target="_blank" rel="noopener">MYD13Q1</a> v061 (Terra and Aqua), via <a href="https://appeears.earthdatacloud.nasa.gov/" target="_blank" rel="noopener">AppEEARS</a></td><td>EVI, NDVI and pixel quality layers to discard clouds.</td></tr>
+          <tr><td>Daily rainfall, 0.1°</td><td><a href="https://doi.org/10.5067/GPM/IMERGDF/DAY/07" target="_blank" rel="noopener">GPM IMERG v07</a>, via GES DISC</td><td>Annual rainfall, heavy-rain days, dry spells.</td></tr>
+          <tr><td>Elevation, 30 m</td><td><a href="https://doi.org/10.5067/MEaSUREs/SRTM/SRTMGL1_NC.003" target="_blank" rel="noopener">SRTM v3 (SRTMGL1_NC)</a>, via AppEEARS</td><td>Slope, with Horn's method.</td></tr>
+          <tr><td>Daily satellite image</td><td><a href="https://www.earthdata.nasa.gov/engage/open-data-services-software/earthdata-developer-portal/gibs-api" target="_blank" rel="noopener">NASA GIBS</a> (MODIS)</td><td>Map of Napo on the landing page.</td></tr>
+          <tr><td>Globe on the landing page</td><td><a href="https://visibleearth.nasa.gov/collection/1484/blue-marble" target="_blank" rel="noopener">Blue Marble</a></td><td>Landing page.</td></tr>
+        </tbody>
+      </table></div>
+      <p><b>Actual status of each dataset.</b> NASA POWER and GIBS run live from the browser. MODIS, IMERG and SRTM require an Earthdata account, which the project's server holds. That path is implemented and tested against a simulator of the services, but not yet with a real account. In this public demo, without the account, the app uses the backups (NASA POWER rainfall and a 90 m elevation model) and shows greenness only on the test plot, with clearly labelled illustrative data.</p>
+      <p>Other sources: <a href="https://soilgrids.org/" target="_blank" rel="noopener">SoilGrids 2.0 (ISRIC)</a> for soil, Copernicus DEM via <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a>, Esri World Imagery and <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="method">
+    <div class="wrap">
+      <p class="kicker">How the data is processed</p>
+      <h2 class="sec-title">Method.</h2>
+      <ul class="en-list">
+        <li><b>Clouds.</b> Only pixels with pixel reliability 0 or 1 and no adjacent cloud or shadow are used. Terra and Aqua are merged. A date with less than 50 % valid area is marked missing.</li>
+        <li><b>Gaps.</b> A Whittaker smoother with an upper envelope, because clouds lower EVI and do not raise it. Only gaps of up to 48 days are filled, and filled points are drawn differently from measured ones.</li>
+        <li><b>Chakra stage.</b> Rules on annual EVI. For example, a clearing is a drop of 0.15 or more against the previous three years.</li>
+        <li><b>Recovery.</b> Plot EVI against a nearby forest with stable greenness. At 85 % or more, the fallow is ready to be opened again.</li>
+        <li><b>Recommendation.</b> A weighted average of rotation, soil, climate and family priorities. The user moves the weights and the ranking updates at once.</li>
+        <li><b>Alerts.</b> Raised only on measured data, when EVI falls 15 % or more below the expected curve. The diagnosis rules out rainfall and heat before pointing to tired soil.</li>
+      </ul>
+      <p>All thresholds and weights live in one configuration file. They are initial values, to be validated with the local research centre. The test plot uses illustrative data: it checks the logic; it is not a measurement.</p>
+    </div>
+  </section>
+
+  <section class="sec gray" id="ai">
+    <div class="wrap">
+      <p class="kicker">Transparency</p>
+      <h2 class="sec-title">Use of artificial intelligence.</h2>
+      <ul class="en-list">
+        <li><b>Images and video.</b> The plants and the two woolly-monkey mascots were generated with Google Flow. They carry an "IA" (AI) mark on the site. The globe is NASA's Blue Marble image.</li>
+        <li><b>Code.</b> Written and tested with the help of Claude (Anthropic), reviewed by the team.</li>
+        <li><b>What is not AI.</b> The traffic light, the recommendation, the plan and the alerts are explicit rules and formulas, not an AI model.</li>
+      </ul>
+      <p>Open source under the MIT license. Community knowledge is stored only with consent, and the community can withdraw it. Willak.space is not affiliated with or endorsed by NASA; it uses NASA open data.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>Willak.space · prototype</span>
+  <span>Open data: NASA POWER, MODIS, GPM IMERG, SRTM, GIBS · Open source (MIT)</span>
+  <a href="index.html" lang="es">Español</a>
+</footer>
+</body>
+</html>

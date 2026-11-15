@@ -1,0 +1,14 @@
+# Willak Space en Netlify.
+# · El sitio (lo que ve la gente) es la carpeta sitio/.
+# · Las funciones del servidor están en netlify/functions y atienden las rutas /api/...
+# · La cuenta Earthdata NO va aquí: se pone en Netlify, en
+#   Project configuration → Environment variables, con alcance "Functions":
+#     EARTHDATA_USERNAME y EARTHDATA_PASSWORD   (obligatorias)
+#     WILLAK_CODIGO                             (opcional: código de acceso para la app)
+# No hay paso de compilación: el sitio es estático y las funciones no usan paquetes externos.
+
+[build]
+  publish = "sitio"
+
+[functions]
+  directory = "netlify/functions"

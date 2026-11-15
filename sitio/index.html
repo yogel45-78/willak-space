@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Willak.space · Satélites para la chacra amazónica</title>
+<meta name="description" content="Willak.space junta datos satelitales de la NASA, medidas en la chacra y la voz de las familias de Napo para decidir mejor qué y cuándo sembrar.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" type="image/svg+xml" href="img/willak/simbolo.png">
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="css/landing.css?v=11">
+<script type="module" src="js/landing.js?v=11"></script>
+</head>
+<body>
+<header class="nav" id="nav">
+  <a class="brand" href="#inicio" aria-label="Willak.space, inicio"><img src="img/willak/simbolo.png" alt="" width="40" height="32"><span><b>Willak<i>.space</i></b><small>NASA Space Apps 2026 · Sangolquí</small></span></a>
+  <nav class="links" aria-label="Secciones">
+    <a href="#plantas">Plantas</a><a href="#satelite">Satélite</a><a href="#luna">Luna</a><a href="#objetivos">Objetivos</a><a href="#mascota">Mascota</a><a href="#datos">Datos</a><a href="en.html" lang="en">English</a>
+  </nav>
+  <a class="btn primary" href="app/index.html">Registrar mi parcela</a>
+</header>
+
+<main>
+  <!-- HERO: globo terráqueo; al deslizar gira hasta Napo y se acerca -->
+  <section class="hero espacio" id="inicio">
+    <div class="hero-sticky">
+      <div class="hero-copy">
+        <p class="kicker"><img src="img/willak/simbolo.png" alt="" width="26" height="21">NASA Space Apps Challenge 2026 · Sangolquí · Reto Field Shift</p>
+        <h1 id="hero-h1">Del espacio a la chacra.</h1>
+        <p class="lead" id="hero-lead">Satélites de la NASA, medidas en el terreno y la palabra de las familias, para decidir mejor qué sembrar en la Amazonía.</p>
+        <div class="cta"><a class="btn primary big" href="app/index.html">Registrar mi parcela</a><a class="btn big" href="#satelite">Ver Napo con satélite</a></div>
+        <p class="hero-note" id="hero-note" aria-live="polite">Tierra · imagen Blue Marble de la NASA</p>
+      </div>
+      <div class="globe-stage" aria-hidden="true">
+        <canvas id="globe"></canvas>
+        <canvas id="globe-seq" data-video="no" hidden></canvas>
+        <div class="globe-tag" id="globe-tag"><i></i><span><b>Napo, Ecuador</b> · 0,99° S · 77,8° O</span></div>
+      </div>
+      <a class="scroll-hint" href="#plantas" aria-label="Bajar a las plantas"><span></span></a>
+    </div>
+  </section>
+
+  <!-- PLANTAS: escena fija; cada planta gira con el scroll y da paso a la siguiente -->
+  <section class="plant-scroll" id="plantas" aria-label="Plantas nativas de la chacra amazónica">
+    <div class="plant-sticky">
+      <div class="plant-text">
+        <p class="kicker">Lo que crece en la chacra</p>
+        <div class="plant-items" id="plant-items">
+          <article data-plant="chonta" data-frames="72"><h2>Chonta</h2><p class="zone">Palma · Bactris gasipaes</p><p>Palma de fruto que las familias amazónicas cultivan y cosechan.</p></article>
+          <article data-plant="yuca" data-frames="72"><h2>Yuca</h2><p class="zone">Raíz · Manihot esculenta</p><p>Base de la comida diaria en la chacra amazónica.</p></article>
+          <article data-plant="cacao" data-frames="72"><h2>Cacao</h2><p class="zone">Árbol · Theobroma cacao</p><p>Cultivo de sombra que se siembra junto a otros árboles.</p></article>
+          <article data-plant="guayusa" data-frames="72"><h2>Guayusa</h2><p class="zone">Hoja · Ilex guayusa</p><p>Hoja con la que las familias kichwa preparan una infusión.</p></article>
+          <article data-plant="una-de-gato" data-frames="72"><h2>Uña de gato</h2><p class="zone">Liana · Uncaria tomentosa</p><p>Planta de uso medicinal tradicional del bosque amazónico.</p></article>
+          <article data-plant="achiote" data-frames="72"><h2>Achiote</h2><p class="zone">Arbusto · Bixa orellana</p><p>Semillas que dan el colorante rojo usado en cocina y pintura.</p></article>
+        </div>
+        <ol class="plant-dots" id="plant-dots" aria-hidden="true"><li></li><li></li><li></li><li></li><li></li><li></li></ol>
+        <p class="fine">Fichas por validar con las familias de las chacras.</p>
+      </div>
+      <div class="plant-stage">
+        <canvas id="plant-seq" class="seq"></canvas>
+        <span class="marca-ia">Generado con IA · Google Flow</span>
+        <img class="plant-poster" id="plant-poster" alt="" hidden>
+        <div class="plant-empty" id="plant-empty"><svg viewBox="0 0 120 120" aria-hidden="true"><path d="M60 108V50M60 78C40 78 28 64 26 44c20 0 32 12 34 34ZM60 64c18 0 30-12 32-30-18 0-30 12-32 30Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Imagen de Flow pendiente</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SATÉLITE: MODIS en vivo desde NASA GIBS + clima de NASA POWER -->
+  <section class="sat" id="satelite">
+    <div class="wrap">
+      <p class="kicker">Satélite en tiempo casi real</p>
+      <h2 class="sec-title">Napo, visto por MODIS.</h2>
+      <p class="sec-lead">Cada vez que abres esta página, el mapa le pide a la NASA (servicio GIBS) la imagen más reciente. Sin cuenta ni clave.</p>
+      <div class="sat-grid">
+        <div class="sat-map-box">
+          <div id="sat-map" role="application" aria-label="Mapa satelital de Napo"></div>
+          <div class="sat-badge" id="sat-badge">Cargando imagen…</div>
+        </div>
+        <aside class="sat-panel">
+          <fieldset><legend>Satélite</legend>
+            <label><input type="radio" name="sat" value="Terra" checked> Terra · mañana</label>
+            <label><input type="radio" name="sat" value="Aqua"> Aqua · tarde</label>
+          </fieldset>
+          <fieldset><legend>Capa</legend>
+            <label><input type="radio" name="capa" value="color" checked> Color real</label>
+            <label><input type="radio" name="capa" value="ndvi"> Vegetación (NDVI, 8 días)</label>
+          </fieldset>
+          <div class="day">
+            <button type="button" id="d-prev" aria-label="Día anterior">‹</button>
+            <input type="date" id="d-input" aria-label="Fecha de la imagen">
+            <button type="button" id="d-next" aria-label="Día siguiente">›</button>
+          </div>
+          <button type="button" class="btn" id="d-hoy">Imagen más reciente</button>
+          <div class="power" id="power" aria-live="polite"><h3>Clima en Tena · NASA POWER</h3><p class="fine">Cargando…</p></div>
+        </aside>
+      </div>
+      <p class="honest"><b>Lo que el satélite no ve:</b> en la Amazonía las nubes tapan muchos días, y un píxel de MODIS mide 250 m a 1 km mientras una chacra mide entre 0,5 y 2 ha. Por eso Willak.space no reemplaza el dato en el terreno: lo acompaña con medidas y relatos de la familia. El clima de POWER es un dato modelado por punto, no una medida hecha en la chacra.</p>
+    </div>
+  </section>
+
+
+  <!-- LUNA: fase calculada en el navegador + calendario lunar que escriben las comunidades -->
+  <section class="sec luna" id="luna">
+    <div class="wrap">
+      <p class="kicker">Killa, la luna</p>
+      <h2 class="sec-title">El calendario lunar de las comunidades.</h2>
+      <p class="sec-lead">Muchas familias agricultoras miran la luna antes de decidir qué hacer en la chacra. Aquí va la fase de hoy; lo que se hace en cada fase lo cuentan las propias comunidades.</p>
+      <div class="moon-top">
+        <div class="moon-now" id="moon-now" aria-live="polite"><svg id="moon-big" viewBox="0 0 100 100" aria-hidden="true"></svg><div><b id="moon-name">…</b><span id="moon-pct"></span><span id="moon-next" class="fine"></span></div></div>
+        <div class="moon-strip" id="moon-strip" aria-label="Fases de los próximos 30 días"></div>
+      </div>
+      <p class="fine">Fase calculada con el ciclo medio de la luna (29,53 días), con un margen de unas horas. No es un dato medido.</p>
+      <div class="lunar-grid">
+        <article><h3>Lo que sabemos, con fuente</h3>
+          <ul>
+            <li><b>Kulla Raymi.</b> Fiesta kichwa-andina que honra a la luna, la fertilidad y las mujeres en época de siembra, hacia el equinoccio del 21 de septiembre. Es de la sierra, no de la Amazonía. <a href="https://www.eluniverso.com/noticias/2019/09/20/nota/7525612/colegios-comunidades-celebran-kulla-raymi" target="_blank" rel="noopener">El Universo, 2019</a>.</li>
+            <li><b>Nunguli Warmi.</b> Relato kichwa de la «dueña de la siembra», publicado por TNC y PAKKIRU, en el que una mujer se dirige a la luna llena. Es un relato, no una regla de siembra. <a href="https://www.nature.org/content/dam/tnc/nature/en/photos/latin-america/nunguli-warmi.pdf" target="_blank" rel="noopener">TNC / PAKKIRU</a>.</li>
+            <li><b>La chakra kichwa amazónica.</b> Sistema ancestral de producción de las comunidades kichwas de Napo, reconocido por la FAO como Sistema Importante de Patrimonio Agrícola Mundial. <a href="https://www.napo.gob.ec/wp-content/uploads/12-ordenanza-chakra-amazonica.pdf" target="_blank" rel="noopener">Ordenanza de Napo</a>.</li>
+          </ul>
+        </article>
+        <article><h3>Lo que falta</h3>
+          <p>No encontramos publicado un calendario lunar de las comunidades kichwas de Napo, y no vamos a inventarlo. Lo escriben quienes lo practican: sabias y sabios, familias de las chacras.</p>
+          <p>Para cada fase preguntamos qué se hace (sembrar, cosechar, podar, dejar descansar), con qué plantas, cómo se dice en kichwa y si la persona autoriza publicarlo.</p>
+        </article>
+      </div>
+      <p><a class="btn primary" href="app/index.html">Anotar en mi parcela</a></p>
+      <h3 class="cal-title">Calendario lunar comunitario <span class="chip">en blanco · se llena con las comunidades</span></h3>
+      <div class="cal-grid" id="cal-grid"></div>
+      <label class="consent"><input type="checkbox" id="cal-consent"> La persona que cuenta esto autoriza que se use y se cite su nombre o comunidad.</label>
+      <div class="cal-actions"><input type="text" id="cal-who" placeholder="Quién lo cuenta y de qué comunidad" aria-label="Quién lo cuenta"><button type="button" class="btn primary" id="cal-copy" disabled>Copiar lo escrito</button><span class="fine" id="cal-msg"></span></div>
+      <p class="fine">Lo que escribas se guarda solo en este navegador. Nada se envía a ningún servidor.</p>
+    </div>
+  </section>
+
+  <!-- OBJETIVOS -->
+  <section class="sec" id="objetivos">
+    <div class="wrap">
+      <p class="kicker">Para qué existe</p>
+      <h2 class="sec-title">Objetivos.</h2>
+      <div class="goals">
+        <article><span class="num">1</span><h3>Datos de la NASA, a escala de chacra</h3><p>Llevar la imagen satelital y los datos de clima a un lenguaje que una familia agricultora use sin ser especialista.</p></article>
+        <article><span class="num">2</span><h3>Comparar tres estrategias de manejo</h3><p>Poner lado a lado la forma actual de manejar la chacra y al menos otras dos, para ver qué cambia en cada una.</p></article>
+        <article><span class="num">3</span><h3>Sumar medidas y relatos</h3><p>Unir lo que ve el satélite con lo que mide la persona en el terreno y con lo que cuentan las familias, con su consentimiento.</p></article>
+        <article><span class="num">4</span><h3>Piloto en Napo</h3><p>Probar primero en chacras de Napo, con las comunidades, y ajustar antes de pensar en otras zonas.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- MASCOTA -->
+  <section class="sec gray" id="mascota">
+    <div class="wrap">
+      <p class="kicker">Tus guías en la chakra</p>
+      <h2 class="sec-title">Dos chorongos, dos miradas.</h2>
+      <p class="sec-lead">El chorongo (mono lanudo, <i>Lagothrix lagothricha</i>) vive en la Amazonía ecuatoriana. En Willak.space son dos y trabajan juntos, con el saber de la comunidad como tercera voz.</p>
+      <div class="duo">
+        <article><img class="masc-anim" data-masc="astronauta" src="img/mascota/astronauta-saluda.webp" alt="Chorongo con traje de astronauta" width="260"><span class="marca-ia">Generado con IA · Google Flow</span>
+          <h3>El que mira desde el espacio</h3><p>Lee lo que ven los satélites: lluvia, calor, pendiente y verdor. Te dice qué tan seguro es cada dato.</p></article>
+        <article><img class="masc-anim" data-masc="campesino" src="img/mascota/campesino-yuca.webp" alt="Chorongo agricultor kichwa con una planta de yuca" width="260"><span class="marca-ia">Generado con IA · Google Flow</span>
+          <h3>El que camina la parcela</h3><p>Pregunta por lo que se mide y se ve en el terreno, sugiere qué sembrar y arma el informe de trazabilidad.</p></article>
+      </div>
+      <p class="fine">Nombres por elegir. La vestimenta del chorongo agricultor es una propuesta: falta revisarla con familias kichwas de Napo antes de usarla en público.</p>
+    </div>
+  </section>
+
+  <!-- DATOS Y TRANSPARENCIA: qué datos de la NASA se usan, con enlace, y qué se hizo con IA -->
+  <section class="sec" id="datos">
+    <div class="wrap">
+      <p class="kicker">Ciencia abierta</p>
+      <h2 class="sec-title">Datos, fuentes y transparencia.</h2>
+      <p class="sec-lead">Qué datos abiertos de la NASA usa Willak.space, de dónde salen y qué se hizo con inteligencia artificial. <a href="en.html" lang="en">Read this in English</a>.</p>
+      <div class="lunar-grid">
+        <article><h3>Datos abiertos de la NASA</h3>
+          <ul>
+            <li><b>NASA POWER.</b> Clima diario desde 2001: temperatura máxima, humedad en la zona de raíces y lluvia de respaldo. La app lo consulta en vivo para cada parcela. <a href="https://power.larc.nasa.gov/" target="_blank" rel="noopener">power.larc.nasa.gov</a></li>
+            <li><b>MODIS MOD13Q1 y MYD13Q1 v061</b> (satélites Terra y Aqua). Verdor EVI y NDVI cada 16 días a 250 m, con sus capas de calidad para descartar nubes. Vía <a href="https://appeears.earthdatacloud.nasa.gov/" target="_blank" rel="noopener">AppEEARS</a>. <a href="https://doi.org/10.5067/MODIS/MOD13Q1.061" target="_blank" rel="noopener">MOD13Q1</a> · <a href="https://doi.org/10.5067/MODIS/MYD13Q1.061" target="_blank" rel="noopener">MYD13Q1</a></li>
+            <li><b>GPM IMERG v07.</b> Lluvia diaria a 0,1°, vía GES DISC. <a href="https://doi.org/10.5067/GPM/IMERGDF/DAY/07" target="_blank" rel="noopener">GPM_3IMERGDF</a></li>
+            <li><b>SRTM v3.</b> Elevación a 30 m para calcular la pendiente. <a href="https://doi.org/10.5067/MEaSUREs/SRTM/SRTMGL1_NC.003" target="_blank" rel="noopener">SRTMGL1_NC</a></li>
+            <li><b>NASA GIBS</b> (imagen MODIS del día en el mapa de esta página) y <b>Blue Marble</b> (el globo de la portada). <a href="https://www.earthdata.nasa.gov/engage/open-data-services-software/earthdata-developer-portal/gibs-api" target="_blank" rel="noopener">GIBS</a> · <a href="https://visibleearth.nasa.gov/collection/1484/blue-marble" target="_blank" rel="noopener">Blue Marble</a></li>
+          </ul>
+          <p class="fine">MODIS, IMERG y SRTM piden una cuenta Earthdata, que guarda el servidor del proyecto. En esta demo pública, sin esa cuenta, esos tres se ven con la parcela de prueba (datos ilustrativos, siempre rotulados) y la app usa los respaldos: lluvia de NASA POWER y un modelo de elevación de 90 m.</p>
+        </article>
+        <article><h3>Otras fuentes</h3>
+          <p>Suelo: <a href="https://soilgrids.org/" target="_blank" rel="noopener">SoilGrids 2.0 (ISRIC)</a>. Elevación de respaldo: Copernicus DEM vía <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a>. Mapa base: Esri World Imagery y <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>. Código: Leaflet y three.js.</p>
+          <h3>Uso de inteligencia artificial</h3>
+          <p><b>Imágenes y video:</b> las plantas y los dos chorongos se generaron con Google Flow y llevan la marca «IA». El globo es la imagen Blue Marble de la NASA.</p>
+          <p><b>Código:</b> se escribió y se probó con ayuda de Claude (Anthropic), revisado por el equipo.</p>
+          <p><b>Lo que no es IA:</b> el semáforo, la nota de cada siembra, el plan y las alertas son reglas y fórmulas explícitas, con sus umbrales a la vista en un archivo de configuración.</p>
+          <p class="fine">Código abierto con licencia MIT. Willak.space no está afiliado a la NASA ni cuenta con su respaldo; usa sus datos abiertos.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="final espacio">
+    <div class="wrap">
+      <h2>Willak.space nace en el NASA Space Apps Challenge 2026, sede Sangolquí.</h2>
+      <p>Prototipo del reto «Field Shift: Adapting Farms with NASA Data». Las imágenes satelitales y el clima de esta página vienen en vivo de la NASA; todo lo demás es de ejemplo hasta validarlo con las comunidades.</p>
+      <a class="btn primary big" href="#inicio">Volver al globo</a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>Willak.space · prototipo</span>
+  <span>Datos abiertos: NASA POWER, MODIS, GPM IMERG, SRTM, GIBS · <a href="#datos">fuentes y uso de IA</a> · Código abierto (MIT) · <a href="en.html" lang="en">English</a></span>
+  <button type="button" id="motion" class="linkbtn">Reducir movimiento</button>
+</footer>
+</body>
+</html>

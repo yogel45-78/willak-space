@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 250" role="img" aria-label="Ñawi, búho de anteojos: alerta"><title>Ñawi: alerta</title>
+<ellipse cx="120" cy="170" rx="62" ry="68" fill="#3A1E1A"/>
+<path d="M62 120 C36 112 22 88 26 62 C40 70 52 84 58 98 C64 106 70 114 74 124Z" fill="#5A332B"/><path d="M178 120 C204 112 218 88 214 62 C200 70 188 84 182 98 C176 106 170 114 166 124Z" fill="#5A332B"/>
+<ellipse cx="120" cy="184" rx="36" ry="48" fill="#F3DDD2"/>
+<path d="M104 160 l16 10 l16 -10 M104 182 l16 10 l16 -10 M108 204 l12 8 l12 -8" fill="none" stroke="#C4623F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="95" y="232" width="18" height="9" rx="4.5" fill="#D9A441"/><rect x="127" y="232" width="18" height="9" rx="4.5" fill="#D9A441"/>
+<g transform="rotate(0 120 104)">
+<ellipse cx="120" cy="100" rx="70" ry="58" fill="#3A1E1A"/>
+<circle cx="94" cy="104" r="34" fill="#FBF4EE"/><circle cx="146" cy="104" r="34" fill="#FBF4EE"/>
+<circle cx="94" cy="104" r="22" fill="#D9A441"/><circle cx="146" cy="104" r="22" fill="#D9A441"/>
+<circle cx="94" cy="104" r="6.5" fill="#3A1E1A"/><circle cx="96.5" cy="101" r="2.6" fill="#fff"/><circle cx="146" cy="104" r="6.5" fill="#3A1E1A"/><circle cx="148.5" cy="101" r="2.6" fill="#fff"/>
+<path d="M72 78 L112 90 M168 78 L128 90" stroke="#3A1E1A" stroke-width="6" stroke-linecap="round"/>
+<path d="M120 108 L111 126 Q120 132 129 126Z" fill="#D9A441" stroke="#3A1E1A" stroke-width="2.5" stroke-linejoin="round"/>
+</g><g transform="translate(104 4)"><path d="M16 2 L31 29 H1Z" fill="#D9A441" stroke="#3A1E1A" stroke-width="3.2" stroke-linejoin="round"/><path d="M16 11 V20" stroke="#3A1E1A" stroke-width="3.2" stroke-linecap="round"/><circle cx="16" cy="24.5" r="1.9" fill="#3A1E1A"/></g></svg>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Willak.space · Pruebas con Guaba CEIPA</title>
+<style>
+  body { font: 15px/1.45 'Segoe UI', system-ui, sans-serif; color: #12301F; background: #fff; margin: 0; padding: 16px; }
+  main { max-width: 980px; margin: 0 auto; }
+  h1 { font-size: 22px; margin: 0 0 4px; } p { margin: 6px 0; } a { color: #114D2B; }
+  .resumen { font-weight: 700; padding: 10px 14px; border-radius: 10px; margin: 12px 0; }
+  .resumen.ok { background: #DDE8D6; color: #1E5734; } .resumen.mal { background: #F6D5D0; color: #8E2A20; }
+  .caja { overflow-x: auto; } table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { border: 1px solid #DCE5D6; padding: 6px 8px; text-align: left; vertical-align: top; } th { background: #F4F7F1; }
+  td.ok { color: #1E5734; font-weight: 700; white-space: nowrap; } td.mal { color: #8E2A20; font-weight: 700; white-space: nowrap; background: #F6D5D0; }
+  .ilus { display: inline-block; border: 1px dashed #9A5B00; color: #7A4B00; font-weight: 700; padding: 1px 8px; border-radius: 4px; text-transform: uppercase; font-size: 12px; }
+</style>
+</head>
+<body>
+<main>
+  <p><a href="index.html">← Volver a la app</a></p>
+  <h1>Pruebas automáticas con la parcela Guaba CEIPA</h1>
+  <p><span class="ilus">Datos ilustrativos</span> Comprueban que la lógica da los valores esperados de la sección 12 de la especificación. No son mediciones reales de la parcela.</p>
+  <div id="resumen" class="resumen" role="status">Corriendo…</div>
+  <div class="caja"><table><thead><tr><th>Sección</th><th>Prueba</th><th>Esperado</th><th>Obtenido</th><th>Resultado</th></tr></thead><tbody id="filas"></tbody></table></div>
+</main>
+<script src="config.js"></script>
+<script src="js/estado.js"></script>
+<script src="js/calculo.js"></script>
+<script src="js/verdor.js"></script>
+<script src="js/motor.js"></script>
+<script src="js/demo.js"></script>
+<script src="js/datos.js"></script>
+<script src="js/servidor.js"></script>
+<script src="js/ambiente.js"></script>
+<script src="js/pruebas.js"></script>
+<script>
+  (function () {
+    const esc = window.Chakra.esc, res = window.Chakra.pruebas(), mal = res.filter((r) => !r.ok).length;
+    document.getElementById('filas').innerHTML = res.map((r) => `<tr><td>${esc(r.seccion)}</td><td>${esc(r.nombre)}</td><td>${esc(r.esperado)}</td><td>${esc(r.obtenido)}</td><td class="${r.ok ? 'ok' : 'mal'}">${r.ok ? 'Pasa' : 'Falla'}</td></tr>`).join('');
+    const el = document.getElementById('resumen');
+    el.textContent = mal ? `${mal} de ${res.length} pruebas fallan.` : `Las ${res.length} pruebas pasan.`;
+    el.className = 'resumen ' + (mal ? 'mal' : 'ok');
+  })();
+</script>
+</body>
+</html>

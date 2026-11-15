@@ -1,0 +1,12 @@
+{
+  "name": "willak-space",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Willak Space: sitio estático (sitio/) y funciones del servidor (netlify/functions) que traen el verdor de AppEEARS y la lluvia IMERG.",
+  "scripts": {
+    "local": "node servidor-local.mjs",
+    "simulada": "node servidor-local.mjs --simulada",
+    "pruebas": "node sitio/app/js/pruebas-node.js && node pruebas/servidor.prueba.mjs"
+  },
+  "engines": { "node": ">=20" }
+}

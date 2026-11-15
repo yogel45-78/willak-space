@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 250" role="img" aria-label="Ñawi, búho de anteojos: saluda"><title>Ñawi: saluda</title>
+<ellipse cx="120" cy="170" rx="62" ry="68" fill="#3A1E1A"/>
+<path d="M62 120 C44 140 42 182 60 214 C70 190 76 150 74 124Z" fill="#5A332B"/><path d="M172 128 C196 112 216 84 212 56 C200 62 188 76 180 92 C174 100 168 112 166 124Z" fill="#5A332B"/><path d="M208 58 l5 -9 M213 66 l9 -5 M215 76 l9 0" stroke="#C4623F" stroke-width="4" stroke-linecap="round"/>
+<ellipse cx="120" cy="184" rx="36" ry="48" fill="#F3DDD2"/>
+<path d="M104 160 l16 10 l16 -10 M104 182 l16 10 l16 -10 M108 204 l12 8 l12 -8" fill="none" stroke="#C4623F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="95" y="232" width="18" height="9" rx="4.5" fill="#D9A441"/><rect x="127" y="232" width="18" height="9" rx="4.5" fill="#D9A441"/>
+<g transform="rotate(0 120 104)">
+<ellipse cx="120" cy="100" rx="70" ry="58" fill="#3A1E1A"/>
+<circle cx="94" cy="104" r="34" fill="#FBF4EE"/><circle cx="146" cy="104" r="34" fill="#FBF4EE"/>
+<circle cx="94" cy="104" r="22" fill="#C4623F"/><circle cx="146" cy="104" r="22" fill="#C4623F"/>
+<circle cx="94" cy="104" r="8.5" fill="#3A1E1A"/><circle cx="97" cy="101" r="3" fill="#fff"/><circle cx="146" cy="104" r="8.5" fill="#3A1E1A"/><circle cx="149" cy="101" r="3" fill="#fff"/>
+
+<path d="M120 108 L111 126 Q120 132 129 126Z" fill="#D9A441" stroke="#3A1E1A" stroke-width="2.5" stroke-linejoin="round"/>
+</g><path d="M110 134 Q120 142 130 134" fill="none" stroke="#3A1E1A" stroke-width="0"/></svg>
