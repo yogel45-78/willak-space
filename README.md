@@ -8,6 +8,8 @@ Apoyo a la decisión para la chakra amazónica: junta datos abiertos de la NASA,
 - **Reto:** Field Shift: Adapting Farms with NASA Data
 - **Usuarios:** agroecólogos y técnicos de campo que acompañan a familias kichwa en Napo
 - **Licencia:** [MIT](LICENSE)
+- **Demo pública:** <https://yogel45-78.github.io/willak-space/> (la app está en <https://yogel45-78.github.io/willak-space/app/>)
+- **Repositorio:** <https://github.com/yogel45-78/willak-space>
 
 ## Qué hace
 
@@ -100,6 +102,8 @@ Decision support for the Amazonian *chakra* (a Kichwa agroforestry plot): it com
 - **Users:** agroecologists and field technicians who work with Kichwa families in Napo, Ecuadorian Amazon
 - **License:** [MIT](LICENSE)
 - **Interface language:** Spanish, because that is the language of its users. This document and [`sitio/en.html`](sitio/en.html) describe it in English.
+- **Public demo:** <https://yogel45-78.github.io/willak-space/> (the app is at <https://yogel45-78.github.io/willak-space/app/>)
+- **Repository:** <https://github.com/yogel45-78/willak-space>
 
 ## What it does
 

@@ -7,8 +7,8 @@ Hoja de trabajo para la entrega del **domingo 15 de noviembre a las 09:00**. Re�
 | # | Regla | Penalización | Estado | Qué falta |
 | --- | --- | --- | --- | --- |
 | 1 | Datos abiertos de la NASA citados y enlazados | −2 | Listo en el proyecto | Copiar la sección 3 de esta hoja en la ficha de la plataforma. |
-| 2 | Repositorio público con licencia abierta en la raíz | −2 | Licencia MIT lista (`LICENSE`) | **Subir esta carpeta a un repositorio público** de GitHub o GitLab y pegar el enlace. |
-| 3 | Enlaces 100 % públicos (se abren en incógnito) | −1 | Pendiente | **Publicar la demo** y probar cada enlace en una ventana de incógnito. |
+| 2 | Repositorio público con licencia abierta en la raíz | −2 | **Listo:** <https://github.com/yogel45-78/willak-space> con `LICENSE` (MIT) en la raíz | Pegar ese enlace en la plataforma. |
+| 3 | Enlaces 100 % públicos (se abren en incógnito) | −1 | **Listo:** demo en <https://yogel45-78.github.io/willak-space/> | Probar los dos enlaces en una ventana de incógnito antes de entregar. |
 | 4 | Máximo 7 diapositivas (o video de 30 s) | −1 | Guion listo (sección 4) | Armar el PDF con 7 diapositivas o menos. |
 | 5 | Declaración de IA, marcas de agua, logos de la NASA | −1 | Listo en el sitio | Marcar la casilla de IA en la plataforma. En las diapositivas, toda imagen generada con IA debe llevar su marca. No usar el logo de la NASA. |
 | 6 | Documentación en español e inglés | −1 | Lista (`README.md`, `sitio/en.html`, sección 2) | Cargar la ficha en los dos idiomas. |
